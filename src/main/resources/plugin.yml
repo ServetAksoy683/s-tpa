@@ -1,0 +1,42 @@
+name: S-Tpa
+version: 1.1.0
+main: com.stpa.STpa
+api-version: '1.19'
+folia-supported: true
+author: Hadi
+description: Basit ve hizli isinlanma (teleport) plugini - Paper ve Folia destekli
+softdepend: [PlaceholderAPI]
+
+commands:
+  stpa:
+    description: Bir oyuncuya isinlanma istegi gonderir
+    usage: /stpa <oyuncu>
+  stpaccept:
+    description: Gelen isinlanma istegini kabul eder ve aninda isinlanir
+    usage: /stpaccept
+  stpadisable:
+    description: Kendi isinlanma isteklerini kapatir
+    usage: /stpadisable
+  stpaenable:
+    description: Kendi isinlanma isteklerini tekrar acar
+    usage: /stpaenable
+  stpadmin:
+    description: (Sadece yetkili) Oyuncuyu onay beklemeden yanina isinlar
+    usage: /stpadmin <oyuncu>
+  stpafreeze:
+    description: (Sadece yetkili) Tum stpa komutlarini durdurur (opler haric)
+    usage: /stpafreeze
+  stpafree:
+    description: (Sadece yetkili) stpafreeze durumunu iptal eder
+    usage: /stpafree
+  stpareload:
+    description: (Sadece yetkili) config.yml dosyasini yeniden yukler
+    usage: /stpareload
+
+permissions:
+  stpa.use:
+    description: Temel stpa komutlarini kullanma izni
+    default: true
+  stpa.admin:
+    description: Yonetici komutlarini (stpadmin, stpafreeze, stpafree, stpreload) kullanma izni
+    default: op

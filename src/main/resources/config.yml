@@ -1,0 +1,150 @@
+# =========================================
+#  S-Tpa Config
+# =========================================
+# language: turkish, russia veya english
+language: turkish
+
+# Bir istegin kac saniye sonra kendiliginden gecersiz olacagi (0 = suresiz)
+request-expire-seconds: 60
+
+# Bir oyuncunun art arda /stpa gonderirken kac saniye beklemesi gerektigi (0 = cooldown yok)
+cooldown-seconds: 5
+
+# true olursa bir oyuncuya ayni anda birden fazla istek gonderilebilir,
+# /stpaccept her seferinde en son gelen istegi kabul eder.
+# false ise yeni istek eskisinin yerine gecer (varsayilan, basit davranis).
+allow-multiple-requests: false
+
+# Kabul edildikten sonra isinlanmadan once beklenecek sure (0 = aninda isinlan, varsayilan).
+# 0'dan buyukse, bu sure icinde oyuncu hareket ederse veya hasar alirsa isinlanma iptal olur.
+teleport-warmup-seconds: 0
+
+# Ses efektleri. sound degerini bos birakirsan (sound: "") o olay icin ses calinmaz.
+# Gecerli ses isimleri: https://jd.papermc.io/paper/1.20/org/bukkit/Sound.html
+sounds:
+  request-sent:
+    sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+    volume: 1.0
+    pitch: 1.3
+  request-received:
+    sound: "BLOCK_NOTE_BLOCK_PLING"
+    volume: 1.0
+    pitch: 1.0
+  teleport-success:
+    sound: "ENTITY_ENDERMAN_TELEPORT"
+    volume: 1.0
+    pitch: 1.0
+  warmup-tick:
+    sound: "BLOCK_NOTE_BLOCK_HAT"
+    volume: 0.6
+    pitch: 1.5
+  warmup-cancelled:
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 1.0
+  error:
+    sound: "ENTITY_VILLAGER_NO"
+    volume: 1.0
+    pitch: 0.8
+  admin-action:
+    sound: "ENTITY_ENDER_DRAGON_GROWL"
+    volume: 0.5
+    pitch: 1.4
+
+# =========================================
+#  Mesajlar (MiniMessage formati destekler)
+#  Ornekler: <green>, <red>, <gold>, <gradient:#00c6ff:#0072ff>, <bold>, <click:run_command:'/stpaccept'>
+# =========================================
+messages:
+  turkish:
+    only-players: "<red>Bu komut sadece oyuncular tarafından kullanılabilir."
+    usage-stpa: "<gray>Kullanım: <white>/stpa <oyuncu>"
+    usage-stpadmin: "<gray>Kullanım: <white>/stpadmin <oyuncu>"
+    player-not-found: "<red>Oyuncu bulunamadı: <white>%player%"
+    cannot-request-self: "<red>Kendine ışınlanma isteği gönderemezsin."
+    requests-disabled-by-target: "<red>%player% adlı oyuncu ışınlanma isteklerini kapatmış."
+    cooldown-active: "<red>Yeni bir istek göndermeden önce <white>%seconds%<red> saniye beklemelisin."
+    request-sent: "<gradient:#3ddc84:#00b894>Işınlanma isteği <white>%player%<gradient:#3ddc84:#00b894> adlı oyuncuya gönderildi."
+    request-received: "<yellow>%player% <white>sana bir ışınlanma isteği gönderdi. <click:run_command:'/stpaccept'><hover:show_text:'<gray>Kabul etmek için tıkla'><green><bold>[KABUL ET]</bold></green></hover></click>"
+    no-pending-request: "<red>Kabul edecek bir ışınlanma isteğin yok."
+    request-expired: "<red>Işınlanma isteğinin süresi dolduğu için iptal edildi."
+    multiple-requests-remaining: "<gray>Kabul edilecek <white>%count%<gray> bekleyen isteğin daha var, tekrar <white>/stpaccept<gray> yazabilirsin."
+    warmup-started: "<yellow>%seconds% saniye sonra ışınlanacaksın. <gray>Kıpırdarsan iptal olur."
+    warmup-tick: "<gray>Işınlanmaya <white>%seconds%<gray> saniye..."
+    warmup-cancelled: "<red>Hareket ettiğin için ışınlanma iptal edildi."
+    teleported-you: "<gradient:#3ddc84:#00b894>%player% <white>adlı oyuncunun yanına ışınlandın."
+    teleported-notify: "<gradient:#3ddc84:#00b894>%player% <white>yanına ışınlandı."
+    disable-success: "<green>Işınlanma istekleri artık sana gönderilemeyecek."
+    disable-already: "<red>Işınlanma isteklerin zaten kapalı."
+    enable-success: "<green>Işınlanma isteklerin tekrar açıldı."
+    enable-already: "<red>Işınlanma isteklerin zaten açık."
+    no-permission: "<red>Bu komutu kullanmaya yetkin yok."
+    admin-teleport-success: "<gold>%player% <white>anında yanına ışınlandı."
+    frozen-active: "<red>Sunucu sahibi ışınlanma isteklerini geçici olarak durdurdu."
+    freeze-enabled: "<gold>Tüm ışınlanma istekleri (opler hariç) durduruldu."
+    freeze-already: "<red>Işınlanma istekleri zaten durdurulmuş durumda."
+    unfreeze-success: "<green>Işınlanma istekleri tekrar herkese açıldı."
+    unfreeze-already: "<red>Işınlanma istekleri zaten durdurulmuş değil."
+    reload-success: "<green>S-Tpa config dosyası başarıyla yenilendi."
+
+  russia:
+    only-players: "<red>Эту команду могут использовать только игроки."
+    usage-stpa: "<gray>Использование: <white>/stpa <игрок>"
+    usage-stpadmin: "<gray>Использование: <white>/stpadmin <игрок>"
+    player-not-found: "<red>Игрок не найден: <white>%player%"
+    cannot-request-self: "<red>Вы не можете отправить запрос самому себе."
+    requests-disabled-by-target: "<red>Игрок %player% отключил запросы на телепортацию."
+    cooldown-active: "<red>Подожди <white>%seconds%<red> секунд перед новым запросом."
+    request-sent: "<gradient:#3ddc84:#00b894>Запрос на телепортацию отправлен игроку <white>%player%<gradient:#3ddc84:#00b894>."
+    request-received: "<yellow>%player% <white>отправил тебе запрос на телепортацию. <click:run_command:'/stpaccept'><hover:show_text:'<gray>Нажми, чтобы принять'><green><bold>[ПРИНЯТЬ]</bold></green></hover></click>"
+    no-pending-request: "<red>У тебя нет ожидающих запросов."
+    request-expired: "<red>Время запроса истекло, он был отменён."
+    multiple-requests-remaining: "<gray>У тебя ещё <white>%count%<gray> запрос(ов), напиши <white>/stpaccept<gray> снова."
+    warmup-started: "<yellow>Телепортация через %seconds% сек. <gray>Не двигайся."
+    warmup-tick: "<gray>Телепортация через <white>%seconds%<gray> сек..."
+    warmup-cancelled: "<red>Телепортация отменена из-за движения."
+    teleported-you: "<gradient:#3ddc84:#00b894>Ты телепортирован к игроку <white>%player%<gradient:#3ddc84:#00b894>."
+    teleported-notify: "<gradient:#3ddc84:#00b894>%player% <white>телепортирован к тебе."
+    disable-success: "<green>Теперь тебе нельзя отправлять запросы на телепортацию."
+    disable-already: "<red>Запросы уже отключены."
+    enable-success: "<green>Запросы на телепортацию снова включены."
+    enable-already: "<red>Запросы уже включены."
+    no-permission: "<red>У тебя нет прав для использования этой команды."
+    admin-teleport-success: "<gold>Игрок %player% <white>мгновенно телепортирован к тебе."
+    frozen-active: "<red>Владелец сервера временно приостановил запросы на телепортацию."
+    freeze-enabled: "<gold>Все запросы на телепортацию (кроме операторов) приостановлены."
+    freeze-already: "<red>Запросы уже приостановлены."
+    unfreeze-success: "<green>Запросы на телепортацию снова доступны всем."
+    unfreeze-already: "<red>Запросы и так не приостановлены."
+    reload-success: "<green>Конфигурация S-Tpa успешно перезагружена."
+
+  english:
+    only-players: "<red>This command can only be used by players."
+    usage-stpa: "<gray>Usage: <white>/stpa <player>"
+    usage-stpadmin: "<gray>Usage: <white>/stpadmin <player>"
+    player-not-found: "<red>Player not found: <white>%player%"
+    cannot-request-self: "<red>You cannot send a teleport request to yourself."
+    requests-disabled-by-target: "<red>%player% has disabled teleport requests."
+    cooldown-active: "<red>Please wait <white>%seconds%<red> more seconds before sending another request."
+    request-sent: "<gradient:#3ddc84:#00b894>Teleport request sent to <white>%player%<gradient:#3ddc84:#00b894>."
+    request-received: "<yellow>%player% <white>sent you a teleport request. <click:run_command:'/stpaccept'><hover:show_text:'<gray>Click to accept'><green><bold>[ACCEPT]</bold></green></hover></click>"
+    no-pending-request: "<red>You have no pending teleport request."
+    request-expired: "<red>The teleport request expired and was cancelled."
+    multiple-requests-remaining: "<gray>You still have <white>%count%<gray> pending request(s), type <white>/stpaccept<gray> again."
+    warmup-started: "<yellow>Teleporting in %seconds% seconds. <gray>Don't move."
+    warmup-tick: "<gray>Teleporting in <white>%seconds%<gray>..."
+    warmup-cancelled: "<red>Teleport cancelled because you moved."
+    teleported-you: "<gradient:#3ddc84:#00b894>You have been teleported to <white>%player%<gradient:#3ddc84:#00b894>."
+    teleported-notify: "<gradient:#3ddc84:#00b894>%player% <white>has been teleported to you."
+    disable-success: "<green>Teleport requests can no longer be sent to you."
+    disable-already: "<red>Your teleport requests are already disabled."
+    enable-success: "<green>Your teleport requests are enabled again."
+    enable-already: "<red>Your teleport requests are already enabled."
+    no-permission: "<red>You do not have permission to use this command."
+    admin-teleport-success: "<gold>%player% <white>was instantly teleported to you."
+    frozen-active: "<red>The server owner has temporarily disabled teleport requests."
+    freeze-enabled: "<gold>All teleport requests (except for operators) have been disabled."
+    freeze-already: "<red>Teleport requests are already frozen."
+    unfreeze-success: "<green>Teleport requests are enabled for everyone again."
+    unfreeze-already: "<red>Teleport requests are not currently frozen."
+    reload-success: "<green>S-Tpa config reloaded successfully."
